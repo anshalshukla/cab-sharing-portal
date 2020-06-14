@@ -1,0 +1,30 @@
+{
+  "name": "cab-sharing-portal",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "nodemon src/index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "admin-bro": "^2.4.3",
+    "admin-bro-expressjs": "^2.1.0",
+    "admin-bro-mongoose": "^0.5.2",
+    "apollo-server": "^2.14.4",
+    "bcryptjs": "^2.4.3",
+    "dataloader": "^2.0.0",
+    "express": "^4.17.1",
+    "express-formidable": "^1.2.0",
+    "express-session": "^1.17.1",
+    "graphql": "^15.1.0",
+    "jsonwebtoken": "^8.5.1",
+    "merge-graphql-schemas": "^1.7.7",
+    "mongoose": "^5.9.18",
+    "validator": "^13.1.1",
+    "validators": "^0.3.1"
+  }
+}
