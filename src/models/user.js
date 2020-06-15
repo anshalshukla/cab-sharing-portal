@@ -24,7 +24,6 @@ const userSchema = new mongoose.Schema(
     },
     bits_id: {
       type: String,
-      required: true,
       unique: true,
       trim: true,
       uppercase: true,
@@ -34,26 +33,6 @@ const userSchema = new mongoose.Schema(
         }
       }
     },
-    balance: {
-      type: Number,
-      required: true,
-      default: 0,
-    },
-    stocksOwned: [
-      {
-        stock: {
-          type: mongoose.Schema.Types.ObjectId,
-          ref: "Stock",
-        },
-        units: {
-          type: Number,
-          default: 0,
-        },
-        avgPricePerUnit: {
-          type: Number,
-        },
-      },
-    ],
     password: {
       type: String,
       required: true,
@@ -74,10 +53,6 @@ const userSchema = new mongoose.Schema(
         },
       },
     ],
-    netWorth: {
-      type: Number,
-      default: 0,
-    },
   },
   {
     timestamps: true,
@@ -120,7 +95,6 @@ userSchema.statics.findByCredentials = async (email, password) => {
   return user;
 };
 
-// Hash password before saving.
 userSchema.pre("save", async function (next) {
   const user = this;
   if (user.isModified("password")) {
