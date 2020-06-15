@@ -16,7 +16,7 @@ const User = require("./models/user");
 
 const auth = require("./middleware/auth");
 
-const googleLoginRouter = require("./oAuth2/authRouters");
+const googleLoginRouter = require("./oAuth2/googleAuthRouters");
 
 const app = express();
 

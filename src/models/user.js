@@ -31,7 +31,7 @@ const userSchema = new mongoose.Schema(
         validator : function (id) {
             return /201[0-9][A-Za-z0-9]{4}[0-9]{4}[pP]/.test(id)
         }
-      }
+      },
     },
     password: {
       type: String,
