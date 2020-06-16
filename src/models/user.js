@@ -22,28 +22,6 @@ const userSchema = new mongoose.Schema(
         }
       },
     },
-    bits_id: {
-      type: String,
-      unique: true,
-      trim: true,
-      uppercase: true,
-      validate: {
-        validator : function (id) {
-            return /201[0-9][A-Za-z0-9]{4}[0-9]{4}[pP]/.test(id)
-        }
-      },
-    },
-    password: {
-      type: String,
-      required: true,
-      trim: true,
-      minlength: 7,
-      validate(value) {
-        if (value.toLowerCase().includes("password")) {
-          throw new Error('Password cannot contain "password"');
-        }
-      },
-    },
     tokens: [
       {
         // For auth

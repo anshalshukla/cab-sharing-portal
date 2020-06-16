@@ -5,8 +5,7 @@ type User {
   bits_id: String
 }
 
-type UserAndToken {
-  user: User
+type Token {
   token: String
 }
 
@@ -15,11 +14,7 @@ type Query {
 }
 
 type Mutation {
-  signUp(
-    name: String!
-    password: String!
-    bits_id: String!
-    email: String!
-  ): UserAndToken
-  login(email: String!, password: String!): UserAndToken
+  oAuth2Google(
+    code: String!
+  ): Token
 }
