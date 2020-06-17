@@ -1,5 +1,5 @@
 const User = require("../../models/user");
-const {getAccessTokenFromCode, getUserData} = require("../../utils/oAuth2Google");
+const {getUserData} = require("../../utils/oAuth2Google");
 
 const resolver = {
   Query: {
@@ -17,8 +17,7 @@ const resolver = {
   },
 
   Mutation: {
-    async oAuth2Google(_, {code}) {
-    const access_token = await getAccessTokenFromCode(code);
+    async oAuth2Google(_, {access_token}) {
     const data = await getUserData(access_token);
 
     const user = await User.find({email: data.email});

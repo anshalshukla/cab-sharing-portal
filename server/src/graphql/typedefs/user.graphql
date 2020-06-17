@@ -15,6 +15,6 @@ type Query {
 
 type Mutation {
   oAuth2Google(
-    code: String!
+    access_token: String!
   ): Token
 }
