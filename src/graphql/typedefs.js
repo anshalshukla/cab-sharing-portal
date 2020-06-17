@@ -1,10 +1,7 @@
-const { fileLoader, mergeTypes } = require("merge-graphql-schemas");
+const { loadFilesSync } = require('@graphql-tools/load-files');
+const { mergeTypeDefs } = require('@graphql-tools/merge');
 const { join } = require("path");
-const { gql } = require("apollo-server-express");
 
-const typesArray = fileLoader(join(__dirname, "./typedefs"));
-typeDefs = mergeTypes(typesArray, { all: true });
+const typesArray = loadFilesSync(join(__dirname, "./typedefs"));
 
-module.exports = gql`
-  ${typeDefs}
-`;
+module.exports = mergeTypeDefs(typesArray, { all: true })

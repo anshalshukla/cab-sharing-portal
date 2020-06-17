@@ -3,6 +3,10 @@ const {getAccessTokenFromCode, getUserData} = require("../../utils/oAuth2Google"
 
 const resolver = {
   Query: {
+    async all_users(_, args){
+      users = await User.find({});
+      return users
+    },
     async user(_, args, { user }) {
       if (!args._id) {
         return user;
@@ -14,7 +18,6 @@ const resolver = {
 
   Mutation: {
     async oAuth2Google(_, {code}) {
-    console.log(code)
     const access_token = await getAccessTokenFromCode(code);
     const data = await getUserData(access_token);
 
@@ -24,16 +27,14 @@ const resolver = {
         const user = new User({
             name: data.name,
             email: data.email
-        })
-        await user.save()
-        const token = await user.generateAuthToken()
-        console.log(token)
-        return {token}
+        });
+        await user.save();
+        const token = await user.generateAuthToken();
+        return {token};
     } else {
-        const token = await user[0].generateAuthToken()
-        console.log(token)
-        return {token}
-      }
+        const token = await user[0].generateAuthToken();
+        return {token};
+      };
     },
   },
 };

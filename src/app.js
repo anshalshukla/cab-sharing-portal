@@ -1,8 +1,4 @@
-const express = require("express");
-const AdminBro = require("admin-bro");
-const AdminBroExpressjs = require("admin-bro-expressjs");
-const AdminBroMongoose = require("admin-bro-mongoose");
-const {ApolloServer, gql} = require("apollo-server-express");
+const {ApolloServer} = require("apollo-server");
 const dotEnv = require("dotenv");
 
 dotEnv.config();
@@ -13,26 +9,6 @@ require("./db/mongoose");
 const buildDataloaders = require("./graphql/dataloaders");
 
 const User = require("./models/user");
-
-const auth = require("./middleware/auth");
-
-const googleLoginRouter = require("./oAuth2/googleAuthRouters");
-
-const app = express();
-
-// Setup Admin Panel
-AdminBro.registerAdapter(AdminBroMongoose);
-const adminBro = new AdminBro({
-  resources: [User],
-  rootPath: "/admin",
-});
-const router = AdminBroExpressjs.buildRouter(adminBro);
-
-// Log requests to terminal
-const loggerMiddleware = (req, res, next) => {
-    console.log(req.method + " " + req.path);
-    next();
-}
 
 // For GraphQL
 const typeDefs = require("./graphql/typedefs");
@@ -54,12 +30,6 @@ const server = new ApolloServer({
     },
 });
 
-app.use(express.json());
-app.use(loggerMiddleware);
-app.use(auth);
-app.use(googleLoginRouter);
+server.graphqlPath = "/graphql";
 
-
-server.graphqlPath = "/data";
-server.applyMiddleware({ app });
-module.exports = app;
+module.exports = server;

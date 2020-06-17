@@ -1,7 +1,8 @@
-const { fileLoader, mergeResolvers } = require("merge-graphql-schemas");
+const { loadFilesSync } = require('@graphql-tools/load-files');
+const { mergeResolvers } = require('@graphql-tools/merge');
 const { join } = require("path");
 
-const resolversArray = fileLoader(join(__dirname, "./resolvers"));
+const resolversArray = loadFilesSync(join(__dirname, "./resolvers"));
 
 const resolvers = mergeResolvers(resolversArray);
 

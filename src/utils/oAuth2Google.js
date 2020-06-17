@@ -4,7 +4,6 @@ const redirect_uri = "http://localhost:3000/authenticate/google";
 
 const getAccessTokenFromCode = async (code) => {
   try{
-    console.log(code)
     const { data } = await axios({
       url: `https://oauth2.googleapis.com/token`,
       method: 'post',
@@ -18,7 +17,7 @@ const getAccessTokenFromCode = async (code) => {
     });
     return data.access_token;
   } catch (e) {
-    console.log(e)
+    console.log(e);
     throw new Error("Unable to fetch access token."); 
   }
 };
