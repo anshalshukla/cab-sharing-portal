@@ -1,0 +1,3 @@
+export const headers = {
+    "Authorization" : "JWT eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyLCJ1c2VybmFtZSI6ImYyMDE5MDAzNCIsImV4cCI6MTU5MTYwMTcyMywiZW1haWwiOiJmMjAxOTAwMzRAcGlsYW5pLmJpdHMtcGlsYW5pLmFjLmluIn0.KW_kkU_6zja1ykphAbrvot5191d89v-dPxTHG2jjoDs"
+}
