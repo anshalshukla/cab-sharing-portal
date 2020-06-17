@@ -37,6 +37,18 @@ const userSchema = new mongoose.Schema(
   }
 );
 
+userSchema.virtual('Passenger', {
+    "ref": "Passenger",
+    "localField": "_id",
+    "foreignField": "passenger"
+})
+
+userSchema.virtual('Cab', {
+    "ref": "Cab",
+    "localField": "_id",
+    "foreignField": "primaryPassenger"
+})
+
 // Overriding the default method to return user
 userSchema.methods.toJSON = function () {
   const user = this;
