@@ -9,6 +9,8 @@ require("./db/mongoose");
 const buildDataloaders = require("./graphql/dataloaders");
 
 const User = require("./models/user");
+const Cab = require("./models/cab.js");
+const Passenger = require("./models/passenger.js")
 
 // For GraphQL
 const typeDefs = require("./graphql/typedefs");
