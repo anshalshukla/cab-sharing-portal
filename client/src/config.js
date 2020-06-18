@@ -1,0 +1,7 @@
+export const CLIENT_ID = "55033941067-h0k2u20aofcehv29uetfogq331dm943r.apps.googleusercontent.com"
+export const CLIENT_SECRET="6UPHH45wfMv4U1pZbS8FIePr"
+export const REDIRECT_URI= "http://localhost:3006/oauth-callback/"
+export const SCOPE="profile email"
+export const RESPONSE_TYPE="token"
+export const STATE="google"
+export const PROMPT="select_account"

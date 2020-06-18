@@ -3,17 +3,15 @@ import logo from './logo.svg';
 import axios from './axios-instance'
 import * as headers from './headers'
 import './App.css';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, withRouter } from 'react-router-dom';
+import Auth from './Auth';
+import LoginCallback from './LoginCallback';
 
-function App() {
-  var myHeaders = new Headers(headers.headers)
+const App = props =>  {
+  //var myHeaders = new Headers(headers.headers)
   //console.log(myHeaders.get("Authorization"))
   //myHeaders.append("Authorization", "JWTeyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyLCJ1c2VybmFtZSI6ImYyMDE5MDAzNCIsImV4cCI6MTU4NTQ2MzA2NCwiZW1haWwiOiJmMjAxOTAwMzRAcGlsYW5pLmJpdHMtcGlsYW5pLmFjLmluIn0.Bislf3DhZdD0RrWbHWOnCeOGhZNW7TfYSifDzv-OR34")
   //console.log(myHeaders)
-  axios.get('/api/get_listings', {
-    redirect : "follow"
-  }).then(response => console.log('Response', response))
-    .catch(error => console.log('Error:', error.message))
   //console.log(headers)
   // return (
   //   <div className="App">
@@ -33,14 +31,19 @@ function App() {
   //     </header>
   //   </div>
   // );
+ //localStorage.clear()
+  let component = (!localStorage.getItem("token")) ? <Auth /> : (<h4>Home</h4>)
+
   return (
     <div>
       <Switch>
       <Route path = '/profile' render = {() => <h4>PROFILE</h4>} />
-      <Route path = '/' render = {() => <h4>HOME</h4>} />
+      <Route path = '/login' component = {Auth} />
+      <Route path = "/oauth-callback" component = {LoginCallback} />
+      <Route path = '/' render = {() => component} />
       </Switch>
     </div>
   )
 }
 
-export default App;
+export default withRouter(App);
