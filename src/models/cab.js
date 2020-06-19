@@ -57,6 +57,12 @@ const cabSchema = new mongoose.Schema(
     }
 )
 
+cabSchema.virtual('Passenger', {
+    "ref": "Passenger",
+    "localField": "_id",
+    "foreignField": "cab"
+})
+
 cabSchema.pre("save", function (next) {
     const cab = this;
     if (cab.from === cab.to) {

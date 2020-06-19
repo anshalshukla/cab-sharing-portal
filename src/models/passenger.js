@@ -15,6 +15,11 @@ const passengerSchema = new mongoose.Schema({
             required: true,
             ref: "User"
         },
+        cab: {
+            type: mongoose.Schema.Types.ObjectId,
+            required: false,
+            ref: "Cab"
+        },
         travelDetails: {
             type: Date,
             required: true,
