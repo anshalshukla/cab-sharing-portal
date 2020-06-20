@@ -11,6 +11,7 @@ import { ApolloClient } from "apollo-client";
 import { ApolloProvider} from "@apollo/react-hooks";
 import { typeDefs } from "./resolvers";
 import auth from "./store/reducers/auth"
+import { setContext } from 'apollo-link-context';
 // import Auth from './Auth';
 // import Home from './pages/Home';
 
@@ -20,9 +21,19 @@ const link = new HttpLink({
   uri : "http://localhost:3000/"
 })
 
+const authLink = setContext((_, {headers}) => {
+  const token = localStorage.getItem("token")
+  return {
+    headers : {
+      ...headers,
+      authorization : token ? `JWT ${token}` : "",
+    }
+  }
+})
+
 const client = new ApolloClient({
   cache,
-  link,
+  link : authLink.concat(link),
   typeDefs
   
 })
