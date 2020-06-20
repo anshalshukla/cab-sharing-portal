@@ -36,7 +36,7 @@ const App = props =>  {
   //     </header>
   //   </div>
   // );
- localStorage.clear()
+ //localStorage.clear()
 
 //const client = useApolloClient()
 
