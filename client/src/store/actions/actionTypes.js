@@ -1,0 +1,1 @@
+export const TOGGLE_AUTH_STATE = "TOGGLE_AUTH_STATE"
