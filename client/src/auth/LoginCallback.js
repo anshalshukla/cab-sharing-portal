@@ -2,6 +2,8 @@ import React, { useEffect } from 'react'
 //import Axios from 'axios';
 import gql from "graphql-tag";
 import { useMutation, useApolloClient } from '@apollo/react-hooks';
+import { toggleAuthState } from '../store/actions/actionCreators/auth';
+import { connect } from 'react-redux';
 const LOGIN_QUERY = gql`
                 mutation oAuth2Google($access_token: String!) {
                     oAuth2Google(access_token: $access_token) {
@@ -13,6 +15,7 @@ const LOGIN_QUERY = gql`
 
 
 const LoginCallback = props => {
+    console.log("[loginCallback.js]")
     const client = useApolloClient()
     //localStorage.setItem("token", null);
     const hash = props.location.hash;
@@ -23,12 +26,15 @@ const LoginCallback = props => {
         if(arr[0]==="access_token")
             access_token = arr[1]
     })
-   console.log(access_token)
+   //console.log(access_token)
         const [login, {data, loading, error}] = useMutation(LOGIN_QUERY, {
-            onCompleted({login}){
+            onCompleted(login){
                 console.log("completed")
-                localStorage.setItem("token", login)
-                client.writeData({data : {test : "test"}})
+                localStorage.setItem("token", login.oAuth2Google.token)
+                //client.writeData({data : {isLoggedIn : true}})
+                props.changeLoginState(true)
+                props.history.push('/')
+                //this.props.history.replace('/home')
             },
             onError() {
                 console.log("error")
@@ -40,14 +46,20 @@ const LoginCallback = props => {
                 login({variables : {access_token : access_token}})
             }
             Login()
-        }, [access_token, login])
+        }, [])
         if(loading) return <p>Loading</p>
         if(error) return <p>Error</p>
 
         
         return (
-            <div></div>
+            <div>Logged IN</div>
         )
 }
 
-export default LoginCallback
+const mapDispatchtoProps = dispatch => {
+    return {
+        changeLoginState : (value) => dispatch(toggleAuthState(value))
+    }
+}
+
+export default connect(null, mapDispatchtoProps)(LoginCallback)

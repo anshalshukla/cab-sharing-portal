@@ -1,11 +1,16 @@
 import React from 'react';
-import logo from './logo.svg';
-import axios from './axios-instance'
-import * as headers from './headers'
+// import logo from './logo.svg';
+// import axios from './axios-instance'
+// import * as headers from './headers'
 import './App.css';
-import { Route, Switch, withRouter } from 'react-router-dom';
-import Auth from './Auth';
-import LoginCallback from './LoginCallback';
+import { Route} from 'react-router-dom';
+import Auth from './auth/Auth';
+import LoginCallback from './auth/LoginCallback';
+// import { useApolloClient } from '@apollo/react-hooks';
+// import gql from 'graphql-tag'
+// import { useQuery } from "@apollo/react-hooks";
+import Pages from './pages';
+import { connect } from "react-redux";
 
 const App = props =>  {
   //var myHeaders = new Headers(headers.headers)
@@ -32,18 +37,31 @@ const App = props =>  {
   //   </div>
   // );
  //localStorage.clear()
-  let component = (!localStorage.getItem("token")) ? <Auth /> : (<h4>Home</h4>)
+
+//const client = useApolloClient()
+
+  console.log("[app.js]")
+
+function IsLoggedIn () {
+    const isLoggedIn = props.isLoggedIn
+    //console.log(data)
+    return isLoggedIn ? <Pages />:<Auth />
+}
+
+
 
   return (
     <div>
-      <Switch>
-      <Route path = '/profile' render = {() => <h4>PROFILE</h4>} />
-      <Route path = '/login' component = {Auth} />
-      <Route path = "/oauth-callback" component = {LoginCallback} />
-      <Route path = '/' render = {() => component} />
-      </Switch>
+      <Route path = "/oauth-callback" exact component = {LoginCallback} />
+      <IsLoggedIn />
     </div>
   )
 }
 
-export default withRouter(App);
+const mapStatetoProps = state => {
+  return {
+    isLoggedIn : state.auth.isLoggedIn
+  }
+}
+
+export default connect(mapStatetoProps)(App);
