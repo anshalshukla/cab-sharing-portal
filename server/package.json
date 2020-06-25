@@ -21,6 +21,7 @@
     "dotenv": "^8.2.0",
     "express-formidable": "^1.2.0",
     "graphql": "^15.1.0",
+    "graphql-iso-date": "^3.6.1",
     "graphql-tools": "^6.0.10",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.9.18",

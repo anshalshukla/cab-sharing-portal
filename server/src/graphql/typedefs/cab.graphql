@@ -1,0 +1,24 @@
+enum AllowedLocations {
+    IGI
+    PIL
+    LOH
+    NDL
+    JAI
+}
+
+scalar DateTime
+
+type Cab {
+    _id: String!
+    passengers: [String!]
+    contact: String!
+    travelDetails: DateTime
+    to: AllowedLocations
+    from: AllowedLocations 
+    primaryPassenger : Passenger!
+}
+
+type Query {
+    all_cabs:[Cab!]
+    cab(_id: String!): Cab
+}
