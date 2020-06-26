@@ -15,6 +15,11 @@ const passengerSchema = new mongoose.Schema({
             required: true,
             ref: "User"
         },
+        seats: {
+            type: Number,
+            default: 1,
+            required: true,
+        },
         travelDetails: {
             type: Date,
             required: true,
@@ -34,6 +39,12 @@ const passengerSchema = new mongoose.Schema({
         timestamps: true
     }
 )
+
+passengerSchema.virtual('Cab', {
+    "ref": "Cab",
+    "localField": "_id",
+    "foreignField": "createdBy" 
+})
 
 passengerSchema.pre("save", function (next) {
     const passenger = this;

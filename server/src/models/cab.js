@@ -1,69 +1,35 @@
 const mongoose = require("mongoose");
 
-const validLocations = ['IGI', 'PIL', 'LOH', 'NDL', 'JAI'];
-
-const getTodayDate = () => {
-    const datetime = new Date();
-    const todayDate = datetime.toISOString().slice(0,10);
-
-    return todayDate;
-}
-
 const cabSchema = new mongoose.Schema(
     {
-        passengers: [
-            {
-                passenger: {
-                    type: String,
-                    required: true,
-                },
-            },
-        ],
-
-        primaryPassenger: {
+        size: {
+            type: Number,
+            default: 1,
+            required: true
+        },
+        createdBy: {
             type: mongoose.Schema.Types.ObjectId,
             required: true,
-            ref: "User"
+            ref: "Passenger"
         },
-
-        contact: {
-            type: Number,
-            required: true,
-            validate: {
-                validator: function(v) {
-                    return /d{10}/.test(v);
-                },
-                message: '{VALUE} is not a valid 10 digit number!'
-            }
-        },
-
-        to: {
-            type: String,
-            enum: validLocations,
-            required: true
-        },
-
-        from: {
-            type: String,
-            enum: validLocations,
-            required: true
-        },
-
-        travelDetails: {
-            type: Date,
-            required: true,
-            min: getTodayDate()
-        }
+        passengers: [
+            {
+                type: String,
+                trim: true,
+                required: false
+            },
+        ],   
+    }, {
+        timestamps: true
     }
 )
 
-cabSchema.pre("save", function (next) {
-    const cab = this;
-    if (cab.from === cab.to) {
-        throw new Error("TO and FROM locations are same");
-    }
+cabSchema.pre('save', async function(next) {
+    const cab = this
 
-    cab.passengers.push(cab.primaryPassenger.name);
+    await cab.populate('createdBy').execPopulate();
+    await cab.createdBy.populate('passenger').execPopulate();
+    cab.passengers.push(cab.createdBy.passenger.name);
 
     next();
 })

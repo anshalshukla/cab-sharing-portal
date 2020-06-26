@@ -10,6 +10,17 @@ const userSchema = new mongoose.Schema(
       required: true,
       trim: true,
     },
+    contact: {
+      type: String,
+      trim: true,
+      required: false,
+      validate: {
+          validator: function(v) {
+              return /\d{10}/.test(v);
+          },
+          message: '{VALUE} is not a valid 10 digit number!'
+      }
+    },
     email: {
       type: String,
       required: true,
@@ -43,11 +54,6 @@ userSchema.virtual('Passenger', {
     "foreignField": "passenger"
 })
 
-userSchema.virtual('Cab', {
-    "ref": "Cab",
-    "localField": "_id",
-    "foreignField": "primaryPassenger"
-})
 
 // Overriding the default method to return user
 userSchema.methods.toJSON = function () {
