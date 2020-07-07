@@ -1,5 +1,8 @@
-import React from 'react'
+import React, { Fragment } from 'react'
+import styles from "./Auth.module.css"
 import * as config from "../../config";
+import {ReactComponent as Background} from '../../assets/LoginBackground.svg'
+import LoginButton from '../../components/UI/LoginButton/LoginButton';
 const Auth = props=> {
    //localStorage.clear()
    //localStorage.setItem("token", "ishan")
@@ -17,7 +20,17 @@ const Auth = props=> {
    const loginHandler = () => {
        window.location.assign(url);
    }
-    return <button onClick = {loginHandler}>LOGIN</button>
+    return (
+        <Fragment>
+            <div className={styles.Heading}>
+                BPPC CABSHARING PORTAL
+            </div>
+            <div className={styles.Background}>
+               <Background></Background>
+            </div>
+            <LoginButton click = {loginHandler} />
+        </Fragment>
+    )
 }
 
 export default Auth
