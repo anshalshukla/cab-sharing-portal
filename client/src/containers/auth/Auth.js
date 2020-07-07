@@ -1,5 +1,5 @@
 import React from 'react'
-import * as config from "../config";
+import * as config from "../../config";
 const Auth = props=> {
    //localStorage.clear()
    //localStorage.setItem("token", "ishan")

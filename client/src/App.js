@@ -4,8 +4,8 @@ import React from 'react';
 // import * as headers from './headers'
 import './App.css';
 import { Route} from 'react-router-dom';
-import Auth from './auth/Auth';
-import LoginCallback from './auth/LoginCallback';
+import Auth from "./containers/auth/Auth";
+import LoginCallback from "./containers/auth/LoginCallback";
 // import { useApolloClient } from '@apollo/react-hooks';
 // import gql from 'graphql-tag'
 // import { useQuery } from "@apollo/react-hooks";
