@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 //import Axios from 'axios';
 import gql from "graphql-tag";
 import { useMutation, useApolloClient } from '@apollo/react-hooks';
-import { toggleAuthState } from '../store/actions/actionCreators/auth';
+import { toggleAuthState } from "../../store/actions/actionCreators/auth"
 import { connect } from 'react-redux';
 const LOGIN_QUERY = gql`
                 mutation oAuth2Google($access_token: String!) {

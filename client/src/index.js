@@ -9,7 +9,6 @@ import { Provider } from 'react-redux';
 import { createStore, applyMiddleware, compose, combineReducers } from 'redux';
 import { ApolloClient } from "apollo-client";
 import { ApolloProvider} from "@apollo/react-hooks";
-import { typeDefs } from "./resolvers";
 import auth from "./store/reducers/auth"
 import { setContext } from 'apollo-link-context';
 // import Auth from './Auth';
@@ -34,7 +33,6 @@ const authLink = setContext((_, {headers}) => {
 const client = new ApolloClient({
   cache,
   link : authLink.concat(link),
-  typeDefs
   
 })
 
