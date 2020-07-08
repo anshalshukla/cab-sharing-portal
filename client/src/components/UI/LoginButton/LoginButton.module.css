@@ -1,4 +1,5 @@
 .LoginWrapper {
+    cursor: pointer;
     position: absolute;
     width: 75vw;
     height: 8vh;
@@ -12,14 +13,55 @@ border-radius: 30px;
 }
 .LoginWrapper > div {
     position: relative;
+    height: 4vh;
     top: 2vh;
 }
 .LoginText {
     color: #fafafa;
-    font-size: 5vw;
+    font-size: 2.5vh;
     line-height: 7.5vw;
 }
 img {
     position: relative;
     right: 2vw;
+}
+
+@media all and (min-width: 500px) and (max-width: 999px) {
+    .LoginWrapper > div {
+        top: 1vh;
+    }
+    .LoginText {
+        font-size: 4vw;
+    }
+    img {
+        height: 5vw;
+        right: 4vw;
+        top: 0.75vh;
+    }
+}
+
+@media all and (min-width:1000px) {
+    .LoginWrapper {
+        width: 60vw;
+        left: 20vw;
+    }
+    .LoginWrapper > div {
+        top: -3vh;
+    }
+    .LoginText {
+        margin-top: 2.5vh;
+        font-size: 3vh;
+    }
+    img {
+        height: 4vh;
+        top: 5vh;
+        left: -2.5vw;
+    }
+
+}
+
+@media all and (min-width: 1400px) {
+    .LoginText {
+        margin-top: 0;
+    }
 }
