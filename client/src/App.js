@@ -45,7 +45,7 @@ const App = props =>  {
 function IsLoggedIn () {
     const isLoggedIn = props.isLoggedIn
     //console.log(data)
-    return isLoggedIn ? <Auth />:<Auth />
+    return isLoggedIn ? <Pages />:<Auth />
 }
 
 
