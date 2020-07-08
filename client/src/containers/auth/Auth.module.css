@@ -7,16 +7,35 @@
     color: #310887;
     text-align: center;
     line-height: 10vw;
-    font-style: normal;
     font-feature-settings: "pnum" on, "lnum" on;
     position: absolute;
     top: 10vh;
 }
 .Background {
-    width: 140vw;
+    width: 100vw;
     height: 50vh;
     position: absolute;
     top: 30vh;
-    left: -15vw;
     overflow: hidden;
+}
+
+@media all and (min-width: 500px) and (max-width: 999px) {
+    .Heading {
+        font-size: 7.0vw;
+        font-weight: 600;
+    }
+    .Background {
+        left: -1vw;
+    }
+}
+@media all and (min-width: 1000px) {
+    .Heading {
+        font-size: 4vw;
+        font-weight: 600;
+        top: 4vh;
+    }
+    .Background {
+        top: 25vh;
+        /* height: 60vh; */
+    }
 }
