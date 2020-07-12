@@ -3,15 +3,10 @@ const {getUserData} = require("../../utils/oAuth2Google");
 
 const resolver = {
   Query: {
-    async all_users(_, args){
-      users = await User.find({});
-      return users
-    },
-    async user(_, args, { user }) {
-      if (!args._id) {
-        return user;
-      }
-      user = await User.findById(args._id);
+    async logged_user(_, args, context) {
+      const user = await context.user;
+      await user.populate('cabs').execPopulate();
+
       return user;
     },
   },
