@@ -12,12 +12,6 @@ const buildDataloaders = require("./graphql/dataloaders");
 const User = require("./models/user");
 const Cab = require("./models/cab.js");
 
-// const user = new User({
-//     "name": "sarthak",
-//     "contact": "9315271189",
-//     "email": "csarthak706@gmail.com"
-// })
-
 // user.save();
 
 // const cab1 = new Cab({
@@ -80,47 +74,6 @@ const Cab = require("./models/cab.js");
 
 // cab6.save();
 
-
-// const start = new Date("2020-07-15T11:37:49.326Z");
-// const end = new Date("2020-07-15T13:40:49.326Z");
-// const query = async () => {
-//   const cabs = await Cab.find({
-//     to: "PIL",
-//     from: "IGI",
-//     isCompleted: false,
-//     $or: [
-//         {
-//             $and: [
-//                 { start: { $gte: start}},
-//                 { start: { $lt: end}}
-//             ]
-//         },
-//         {
-//             $and: [
-//                 { end: { $gt: start}},
-//                 { end: { $lte: end}}
-//             ]
-//         }
-//     ]
-// });
-
-
-// cabs.forEach((item) => {
-//   console.log(item._id);
-// })
-// }
-
-// query();
-//for authorization
-
-// const query = async () => {
-//   const user = await User.findById("5f0acbbed8cf011ce2d23900");
-//   await user.populate('cabs').execPopulate();
-
-//   console.log(user)
-// }
-
-// query();
 const getUser = async(req) => {
   try {
     const token = req.header("Authorization").replace("Bearer ", "");
