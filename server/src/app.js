@@ -12,8 +12,6 @@ const buildDataloaders = require("./graphql/dataloaders");
 const User = require("./models/user");
 const Cab = require("./models/cab.js");
 
-// user.save();
-
 // const cab1 = new Cab({
 //     "size": 1,
 //     "from": 'IGI',
