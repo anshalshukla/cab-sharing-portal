@@ -19,12 +19,12 @@
   z-index: 5;
 }
 
-.container-navbar,
+.containerNavbar,
 span {
   text-align: center;
 }
 
-.app-title {
+.appTitle {
   position: relative;
   text-decoration: none;
   font-style: normal;
@@ -38,7 +38,7 @@ span {
   margin-top: 0.5vh;
 }
 
-.left-icon {
+.leftIcon {
   position: fixed;
   left: 0vh;
   top: 0vh;
@@ -55,7 +55,7 @@ span {
   background-size: 5vh 5vh;
 }
 
-.right-icon {
+.rightIcon {
   position: fixed;
   right: 0vh;
   top: 0vh;
@@ -71,11 +71,7 @@ span {
   background-size: 5vh 5vh;
 }
 
-div#nav {
+div.nav {
   margin-bottom: 0vh;
 }
 
-.left-hamburger,
-.right-hamburger:hover {
-  font-color: #00c4c4;
-}

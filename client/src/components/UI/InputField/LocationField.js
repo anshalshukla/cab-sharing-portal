@@ -4,13 +4,13 @@ class LocationField extends Component {
   render() {
     return (
       <div>
-        <div className={classes.input-div}>
-          <label className={classes.input-label}>{this.props.name}</label>
-          <div className={classes.input-group}>
-            <input className={classes.input-field} type={this.props.type} />
-            <div className={classes.input-group-append}>
+        <div className={classes.inputDiv}>
+          <label className={classes.inputLabel}>{this.props.name}</label>
+          <div className={classes.inputGroup}>
+            <input className={classes.inputField} type={this.props.type} />
+            <div className={classes.inputGroupAppend}>
               <img
-                className={classes.nav-icon}
+                className={classes.navIcon}
                 src="https://ik.imagekit.io/m52sq26n4h/icons8-marker-24.png"
               />
             </div>
