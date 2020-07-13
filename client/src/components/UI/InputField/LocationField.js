@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "./Field.module.css";
+import classes from "./Field.module.css";
 class LocationField extends Component {
   render() {
     return (

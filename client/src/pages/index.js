@@ -13,7 +13,6 @@ const Pages = props => {
             <Route path = "/profile" component = {Profile} ></Route>
                 <Route path = "/" component = {Home} />
             </Switch>
-
             </BrowserRouter>
         </Fragment>
     )

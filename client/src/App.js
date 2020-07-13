@@ -21,30 +21,30 @@ const App = (props) => {
   //myHeaders.append("Authorization", "JWTeyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyLCJ1c2VybmFtZSI6ImYyMDE5MDAzNCIsImV4cCI6MTU4NTQ2MzA2NCwiZW1haWwiOiJmMjAxOTAwMzRAcGlsYW5pLmJpdHMtcGlsYW5pLmFjLmluIn0.Bislf3DhZdD0RrWbHWOnCeOGhZNW7TfYSifDzv-OR34")
   //console.log(myHeaders)
   //console.log(headers)
-  return (
-    <div className="App">
-      //{" "}
-      <header className="App-header">
-        // <img src={logo} className="App-logo" alt="logo" />
-        //{" "}
-        <p>
-          // Edit <code>src/App.js</code> and save to reload. //{" "}
-        </p>
-        //{" "}
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-  localStorage.clear();
+  // return (
+  //   <div className="App">
+  //     //{" "}
+  //     <header className="App-header">
+  //       // <img src={logo} className="App-logo" alt="logo" />
+  //       //{" "}
+  //       <p>
+  //         // Edit <code>src/App.js</code> and save to reload. //{" "}
+  //       </p>
+  //       //{" "}
+  //       <a
+  //         className="App-link"
+  //         href="https://reactjs.org"
+  //         target="_blank"
+  //         rel="noopener noreferrer"
+  //       >
+  //         Learn React
+  //       </a>
+  //     </header>
+  //   </div>
+  // );
+  //localStorage.clear();
 
-  const client = useApolloClient();
+  //const client = useApolloClient();
 
   console.log("[app.js]");
 
@@ -69,4 +69,4 @@ const mapStatetoProps = (state) => {
 };
 
 export default connect(mapStatetoProps)(App);
-export default App;
+//export default App;
