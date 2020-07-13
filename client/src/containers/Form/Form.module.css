@@ -1,0 +1,9 @@
+.banner {
+    width: 103vw;
+    height: 35vh;
+    left: -6px;
+    top: 6vh;
+  }
+  .body {
+    background-color: white;
+  }
