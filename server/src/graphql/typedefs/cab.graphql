@@ -1,24 +1,28 @@
 enum AllowedLocations {
-    IGI
-    PIL
-    LOH
-    NDL
-    JAI
+    IGI,
+    PIL,
+    LOH,
+    NDL,
+    JAI,
 }
-
-scalar DateTime
 
 type Cab {
     _id: String!
-    passengers: [String!]
-    contact: String!
-    travelDetails: DateTime
+    passengers: [User!]
     to: AllowedLocations
     from: AllowedLocations 
-    primaryPassenger : Passenger!
+    start: String!
+    end: String!
+    isCompleted: Boolean!
+    size: Int!
 }
 
-type Query {
-    all_cabs:[Cab!]
-    cab(_id: String!): Cab
+type Mutation {
+    createCab(
+       size: Int!
+       start: String!
+       end: String!
+       to: AllowedLocations
+       from: AllowedLocations
+    ): Cab
 }

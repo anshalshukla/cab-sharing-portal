@@ -33,6 +33,12 @@ const userSchema = new mongoose.Schema(
         }
       },
     },
+    cabs: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Cab"
+      }
+    ],
     tokens: [
       {
         // For auth
@@ -47,13 +53,6 @@ const userSchema = new mongoose.Schema(
     timestamps: true,
   }
 );
-
-userSchema.virtual('Passenger', {
-    "ref": "Passenger",
-    "localField": "_id",
-    "foreignField": "passenger"
-})
-
 
 // Overriding the default method to return user
 userSchema.methods.toJSON = function () {

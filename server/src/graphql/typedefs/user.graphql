@@ -2,6 +2,8 @@ type User {
   _id: String!
   name: String
   email: String
+  contact: String
+  cabs: [Cab!]
 }
 
 type Token {
@@ -9,8 +11,7 @@ type Token {
 }
 
 type Query {
-  all_users:[User!]
-  user(_id: String!): User
+  logged_user: User
 }
 
 type Mutation {
