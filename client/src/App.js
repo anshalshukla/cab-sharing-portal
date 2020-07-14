@@ -42,7 +42,7 @@ const App = (props) => {
   //     </header>
   //   </div>
   // );
-  //localStorage.clear();
+  //localStorage.clear(); //Uncomment this line, wait for app to reload, then comment this line again to go to auth component
 
   //const client = useApolloClient();
 
