@@ -1,41 +1,94 @@
-.Heading {
-    /* color: dodgerblue; */
-    width: 100vw;
-    height: 15vh;
-    font-weight: 500;
-    font-size: 10vw;
-    color: #310887;
-    text-align: center;
-    line-height: 10vw;
-    font-feature-settings: "pnum" on, "lnum" on;
-    position: absolute;
-    top: 10vh;
+.headingContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 25vh;
+  width: 100vw;
 }
-.Background {
-    width: 100vw;
-    height: 50vh;
-    position: absolute;
-    top: 30vh;
-    overflow: hidden;
+
+.heading {
+  font-weight: 500;
+  font-size: 5vh;
+  color: #310887;
+  text-align: center;
+}
+
+.imgContainer {
+  width: 100vw;
+  height: 50vh;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.img {
+  height: 100%;
+}
+
+.loginButtonContainer {
+  height: 25vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 @media all and (min-width: 500px) and (max-width: 999px) {
-    .Heading {
-        font-size: 7.0vw;
-        font-weight: 600;
-    }
-    .Background {
-        left: -1vw;
-    }
+  .headingContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 25vh;
+    width: 100vw;
+  }
+
+  .heading {
+    font-weight: 500;
+    font-size: 6vh;
+    color: #310887;
+    text-align: center;
+  }
+
+  .imgContainer {
+    width: 100vw;
+    height: 50vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .img {
+    height: 100%;
+  }
 }
 @media all and (min-width: 1000px) {
-    .Heading {
-        font-size: 4vw;
-        font-weight: 600;
-        top: 4vh;
-    }
-    .Background {
-        top: 25vh;
-        /* height: 60vh; */
-    }
+  .headingContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 25vh;
+    width: 100vw;
+  }
+
+  .heading {
+    font-weight: 500;
+    font-size: 8vh;
+    color: #310887;
+    text-align: center;
+  }
+
+  .imgContainer {
+    width: 100vw;
+    height: 50vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .img {
+    height: 100%;
+  }
 }

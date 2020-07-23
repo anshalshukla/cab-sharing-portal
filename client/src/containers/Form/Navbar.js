@@ -1,21 +1,29 @@
-import React from 'react';
-import {Component} from 'react';
+import React from "react";
+import { Component } from "react";
+
 import classes from "./Navbar.module.css";
-class Navbar extends React.Component{
-	render() {
-		return (
-			<React.Fragment>
-				<div>
-					<div className={classes.nav}>
-						 <div className={classes.containerNavbar}>
-							 <span className={classes.leftIcon}></span>
-						 <span><a className={classes.appTitle} href="#">Enter Your Preferences</a></span>
-							 <span className={classes.rightIcon}></span>
-						 </div>
-					</div>
-				</div>
-			 </React.Fragment>
-		)
-	}
+import LeftIcon from '../../assets/leftIcon.png';
+import TickIcon from '../../assets/tickIcon.png';
+
+class Navbar extends Component {
+  render() {
+    return (
+      <React.Fragment>
+        <div>
+          <div className={classes.nav}>
+            <div className={classes.leftIconContainer}>
+              <img src={LeftIcon} className={classes.leftIcon} />
+            </div>
+            <div>
+              <div className={classes.appTitle}>Enter Your Preferences</div>
+            </div>
+            <div className={classes.tickIconContainer}>
+						<img src={TickIcon} className={classes.tickIcon} />
+						</div>
+          </div>
+        </div>
+      </React.Fragment>
+    );
+  }
 }
 export default Navbar;
