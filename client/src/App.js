@@ -50,7 +50,6 @@ const App = (props) => {
 
   function IsLoggedIn() {
     const isLoggedIn = props.isLoggedIn;
-    //console.log(data)
     return isLoggedIn ? <Pages /> : <Auth />;
   }
 
@@ -69,4 +68,3 @@ const mapStatetoProps = (state) => {
 };
 
 export default connect(mapStatetoProps)(App);
-//export default App;
