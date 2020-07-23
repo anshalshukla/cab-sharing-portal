@@ -9,14 +9,22 @@ class Form extends Component {
     return (
       <div>
         <Navbar />
-        <img
-          className={classes.banner}
-          src="https://ik.imagekit.io/m52sq26n4h/taxi.jpg"
-        />
-        <LocationField name="Source" type="country" />
-        <LocationField name="Destination" type="name" />
-        <InputField name="Date Of Journey" type="date" />
-        <InputField name="Select Time Window" type="time" />
+        <div className = {classes.flexContainer}>
+          <div>
+            <img
+              className={classes.banner}
+              src="https://ik.imagekit.io/m52sq26n4h/taxi.jpg"
+            />
+          </div>
+          <div className={classes.formFields}>
+            <LocationField name="Source" type="country" />
+            <LocationField name="Destination" type="name" />
+            <InputField name="Date Of Journey" type="date" />
+            <InputField name="Select Time Window" type="time" />
+            <InputField name="Phone No." type="tel"  />
+          </div>
+        </div>
+        
       </div>
     );
   }

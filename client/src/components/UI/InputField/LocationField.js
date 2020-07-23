@@ -9,10 +9,10 @@ class LocationField extends Component {
           <div className={classes.inputGroup}>
             <input className={classes.inputField} type={this.props.type} />
             <div className={classes.inputGroupAppend}>
-              <img
+              {/* <img
                 className={classes.navIcon}
                 src="https://ik.imagekit.io/m52sq26n4h/icons8-marker-24.png"
-              />
+              /> */}
             </div>
           </div>
         </div>

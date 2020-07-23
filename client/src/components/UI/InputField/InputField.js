@@ -7,7 +7,7 @@ class InputField extends Component {
         
         <div className={classes.inputDiv}>
         <label className={classes.inputLabel}>{this.props.name}</label>
-          <input className={classes.inputField} type={this.props.type}>
+          <input className={classes.inputField} type={this.props.type} >
 
           </input>
         </div>
