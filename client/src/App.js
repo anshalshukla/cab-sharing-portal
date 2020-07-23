@@ -1,50 +1,15 @@
 import React, { Component } from "react";
-// import logo from './logo.svg';
-// import axios from './axios-instance'
-// import * as headers from './headers'
 import "./containers/Form/Form";
 import "./App.css";
 import { Route } from "react-router-dom";
 import Auth from "./containers/auth/Auth";
 import LoginCallback from "./containers/auth/LoginCallback";
-import Form from "./containers/Form/Form";
-// import { useApolloClient } from '@apollo/react-hooks';
-// import gql from 'graphql-tag'
-// import { useQuery } from "@apollo/react-hooks";
 import Pages from "./pages";
 import { connect } from "react-redux";
-import Navbar from "./containers/Form/Navbar";
 
 const App = (props) => {
-  //var myHeaders = new Headers(headers.headers)
-  //console.log(myHeaders.get("Authorization"))
-  //myHeaders.append("Authorization", "JWTeyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyLCJ1c2VybmFtZSI6ImYyMDE5MDAzNCIsImV4cCI6MTU4NTQ2MzA2NCwiZW1haWwiOiJmMjAxOTAwMzRAcGlsYW5pLmJpdHMtcGlsYW5pLmFjLmluIn0.Bislf3DhZdD0RrWbHWOnCeOGhZNW7TfYSifDzv-OR34")
-  //console.log(myHeaders)
-  //console.log(headers)
-  // return (
-  //   <div className="App">
-  //     //{" "}
-  //     <header className="App-header">
-  //       // <img src={logo} className="App-logo" alt="logo" />
-  //       //{" "}
-  //       <p>
-  //         // Edit <code>src/App.js</code> and save to reload. //{" "}
-  //       </p>
-  //       //{" "}
-  //       <a
-  //         className="App-link"
-  //         href="https://reactjs.org"
-  //         target="_blank"
-  //         rel="noopener noreferrer"
-  //       >
-  //         Learn React
-  //       </a>
-  //     </header>
-  //   </div>
-  // );
-  //localStorage.clear(); //Uncomment this line, wait for app to reload, then comment this line again to go to auth component
 
-  //const client = useApolloClient();
+  //localStorage.clear(); //Uncomment this line, wait for app to reload, then comment this line again to go to auth component
 
   console.log("[app.js]");
 

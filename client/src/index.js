@@ -6,13 +6,11 @@ import {  BrowserRouter } from 'react-router-dom';
 import * as serviceWorker from './serviceWorker';
 import { InMemoryCache, HttpLink} from 'apollo-boost';
 import { Provider } from 'react-redux';
-import { createStore, applyMiddleware, compose, combineReducers } from 'redux';
+import { createStore, compose, combineReducers } from 'redux';
 import { ApolloClient } from "apollo-client";
 import { ApolloProvider} from "@apollo/react-hooks";
 import auth from "./store/reducers/auth"
 import { setContext } from 'apollo-link-context';
-// import Auth from './Auth';
-// import Home from './pages/Home';
 
 
 const cache = new InMemoryCache()
@@ -36,18 +34,6 @@ const client = new ApolloClient({
   
 })
 
-// const IS_LOGGED_IN = gql`
-// query isUserLoggedIn {
-//     isLoggedIn @client
-// }
-
-// `
-// function IsLoggedIn () {
-//     const {data} = useQuery(IS_LOGGED_IN)
-//     //console.log(data)
-//     console.log(data)
-//     return data.isLoggedIn ? <App /> : <Auth />
-// }
 cache.writeData({
   data : {
     isLoggedIn : !!localStorage.getItem("token")
@@ -58,7 +44,6 @@ const composeEnhancers =
     typeof window==='object' &&
         window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ ?
             window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({
-                // Specify extension’s options like name, actionsBlacklist, actionsCreators, serialize...
             }) : compose
 
 const enhancers = composeEnhancers()
@@ -87,7 +72,4 @@ ReactDOM.render(
   document.getElementById('root')
 );
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
 serviceWorker.unregister();

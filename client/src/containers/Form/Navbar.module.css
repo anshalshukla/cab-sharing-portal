@@ -1,77 +1,73 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 .nav {
-  position: fixed;
   overflow: hidden;
-  margin: 0;
-  top: 0;
-  width: 100%;
-  padding: 0;
+  width: 100vw;
   background-color: #310887;
   height: 8vh;
-  justify-content: space-evenly;
   display: flex;
+  justify-content: space-between;
   align-items: center;
   box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.2), 0px 4px 5px rgba(0, 0, 0, 0.12),
     0px 2px 4px rgba(0, 0, 0, 0.14);
-  left: 0;
-  right: 0;
-  bottom: 0;
   z-index: 5;
 }
 
-.containerNavbar,
-span {
+.containerNavbar {
   text-align: center;
 }
 
 .appTitle {
-  position: relative;
-  text-decoration: none;
-  font-style: normal;
-  font-weight: normal;
-  color: #ffffff;
-  font-size: 3.5vh;
-  color: #ffffff;
+  color: white;
+  font-size: 5vw;
+  color: white;
   font-family: "Montserrat", sans-serif;
-  font-style: normal;
-  font-weight: normal;
-  margin-top: 0.5vh;
+}
+
+.leftIconContainer {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 5vh;
+  cursor: pointer;
 }
 
 .leftIcon {
-  position: fixed;
-  left: 0vh;
-  top: 0vh;
-  padding: 0vh;
-  border: none;
-  font-size: 0vh;
-  background: transparent;
-  height: 5vh;
-  width: 5vh;
-  margin: 1vh 2vh;
-  background-image: url("https://ik.imagekit.io/m52sq26n4h/icons8-left-48.png");
-  background-repeat: no-repeat;
-  cursor: pointer;
-  background-size: 5vh 5vh;
+  margin-left: 2vw;
+  height: 50%;
 }
 
-.rightIcon {
-  position: fixed;
-  right: 0vh;
-  top: 0vh;
-  padding: 0vh;
-  border: none;
-  font-size: 0vh;
+.tickIconContainer {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 5vh;
-  height: 5vh;
-  margin: 1vh 2vh;
   cursor: pointer;
-  background-image: url("https://ik.imagekit.io/m52sq26n4h/icons8-checkmark-48.png");
-  background-repeat: no-repeat;
-  background-size: 5vh 5vh;
+}
+
+.tickIcon {
+  margin-right: 5vw;
+  height: 50%;
 }
 
 div.nav {
   margin-bottom: 0vh;
 }
 
+@media all and (min-width: 500px) and (max-width: 999px) {
+  .appTitle {
+    font-size: 4vw;
+  }
+}
+
+@media all and (min-width: 1000px) {
+  .appTitle {
+    font-size: 3vw;
+  }
+}
+
+@media all and (min-width: 1500px) {
+  .appTitle {
+    font-size: 2vw;
+  }
+}

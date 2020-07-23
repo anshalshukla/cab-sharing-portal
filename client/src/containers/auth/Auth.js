@@ -1,8 +1,9 @@
 import React, { Fragment } from "react";
 import styles from "./Auth.module.css";
 import * as config from "../../config";
-import { ReactComponent as Background } from "../../assets/LoginBackground.svg";
+// import { ReactComponent as Background } from "../../assets/LoginBackground.svg";
 import LoginButton from "../../components/UI/LoginButton/LoginButton";
+import LoginBackground from "../../assets/LoginBackground.svg";
 const Auth = (props) => {
   console.log("[Auth.js]");
   const qParams = [
@@ -20,11 +21,19 @@ const Auth = (props) => {
   };
   return (
     <Fragment>
-      <div className={styles.Heading}>BPPC CABSHARING PORTAL</div>
-      <div className={styles.Background}>
-        <Background></Background>
+      <div className={styles.headingContainer}>
+        <div className={styles.heading}>BPPC CABSHARING PORTAL</div>
       </div>
-      <LoginButton click={loginHandler} />
+      <div className={styles.imgContainer}>
+        <img
+          src={LoginBackground}
+          className={styles.img}
+          style={{ height: "100%" }}
+        />
+      </div>
+      <div className={styles.loginButtonContainer}>
+        <LoginButton click={loginHandler} />
+      </div>
     </Fragment>
   );
 };
