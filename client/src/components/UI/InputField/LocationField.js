@@ -12,7 +12,7 @@ class LocationField extends Component {
               {/* <img
                 className={classes.navIcon}
                 src="https://ik.imagekit.io/m52sq26n4h/icons8-marker-24.png"
-              /> */}
+              /> img is misbehaving on small screens pls try to fix this */}
             </div>
           </div>
         </div>
