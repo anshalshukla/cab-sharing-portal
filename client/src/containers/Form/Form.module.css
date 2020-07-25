@@ -1,9 +1,42 @@
 .banner {
-    width: 103vw;
-    height: 35vh;
-    left: -6px;
-    top: 6vh;
-  }
-  .body {
-    background-color: white;
-  }
+  width: 103vw;
+  height: 35vh;
+  left: -6px;
+  top: 6vh;
+}
+.body {
+  background-color: white;
+}
+
+@media (min-width: 600px) and (max-width: 999px) {
+
+.banner {
+  width: 50vw;
+  height: 90vh;
+  left: -6px;
+  top: 6vh;
+}
+.flexContainer {
+  display: flex;
+}
+.formFields {
+  width: 40vw;
+}
+}
+
+@media (min-width: 1000px)  {
+
+.banner {
+  width: 50vw;
+  height: 90vh;
+  left: -6px;
+  top: 6vh;
+}
+.flexContainer {
+  display: flex;
+}
+.formFields {
+  width: 35vw;
+  margin-left: 5vw;
+}
+}
