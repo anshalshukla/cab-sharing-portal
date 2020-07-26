@@ -27,7 +27,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 5vh;
+  width: 12vw;
   cursor: pointer;
 }
 
@@ -41,12 +41,12 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 5vh;
+  width: 12vw;
   cursor: pointer;
 }
 
 .tickIcon {
-  margin-right: 5vw;
+  margin-right: 2vw;
   height: 50%;
 }
 
