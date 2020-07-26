@@ -7,7 +7,7 @@ import {updateObject} from "../../shared/utility"
 //import Spinner from "../../components/UI/Spinner/Spinner"
 class Form extends Component {
   state = {
-    orderForm: {
+    form: {
         source: {
             elementType: 'input',
             label: 'Source',
@@ -101,12 +101,12 @@ class Form extends Component {
     formIsValid: false
 }
 
-orderHandler = ( event ) => {
+formSubmitHandler = ( event ) => {
     event.preventDefault();
 
     const formData = {};
-    for (let formElementIdentifier in this.state.orderForm) {
-        formData[formElementIdentifier] = this.state.orderForm[formElementIdentifier].value;
+    for (let formElementIdentifier in this.state.form) {
+        formData[formElementIdentifier] = this.state.form[formElementIdentifier].value;
     }
     
 
@@ -127,20 +127,20 @@ orderHandler = ( event ) => {
 
 inputChangedHandler = (event, inputIdentifier) => {
         
-    const updatedFormElement = updateObject(this.state.orderForm[inputIdentifier], {
+    const updatedFormElement = updateObject(this.state.form[inputIdentifier], {
         value: event.target.value,
-        valid: this.checkValidity(event.target.value, this.state.orderForm[inputIdentifier].validation),
+        valid: this.checkValidity(event.target.value, this.state.form[inputIdentifier].validation),
         touched: true
     });
-    const updatedOrderForm = updateObject(this.state.orderForm, {
+    const updatedForm = updateObject(this.state.form, {
         [inputIdentifier]: updatedFormElement
     });
     
     let formIsValid = true;
-    for (let inputIdentifier in updatedOrderForm) {
-        formIsValid = updatedOrderForm[inputIdentifier].valid && formIsValid;
+    for (let inputIdentifier in updatedForm) {
+        formIsValid = updatedForm[inputIdentifier].valid && formIsValid;
     }
-    this.setState({orderForm: updatedOrderForm, formIsValid: formIsValid});
+    this.setState({form: updatedForm, formIsValid: formIsValid});
 }
 
 checkValidity = (value, rules) => {
@@ -166,8 +166,8 @@ checkValidity = (value, rules) => {
         isValid = pattern.test(value) && isValid
     }
     if(rules.isBigger) {
-        const endTime = this.state.orderForm.endingTime.value
-        const startTime = this.state.orderForm.startingTime.value
+        const endTime = this.state.form.endingTime.value
+        const startTime = this.state.form.startingTime.value
         isValid = ( endTime > startTime ) && isValid
     }
 
@@ -177,14 +177,14 @@ checkValidity = (value, rules) => {
   render() {
     
     const formElementsArray = [];
-        for (let key in this.state.orderForm) {
+        for (let key in this.state.form) {
             formElementsArray.push({
                 id: key,
-                config: this.state.orderForm[key]
+                config: this.state.form[key]
             });
         }
         let detailsForm = (
-            <form onSubmit={this.orderHandler}>
+            <form onSubmit={this.formSubmitHandler}>
                 {formElementsArray.map(formElement => (
                     <Input 
                         key={formElement.id}
@@ -201,7 +201,7 @@ checkValidity = (value, rules) => {
         )
     return (
       <div>
-        <Navbar onSubmit = {this.orderHandler} disabled={!this.state.formIsValid}/>
+        <Navbar onSubmit = {this.formSubmitHandler} disabled={!this.state.formIsValid}/>
         <div className = {classes.flexContainer}>
           <div>
             <img
