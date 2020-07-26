@@ -17,7 +17,7 @@ class Navbar extends Component {
             <div>
               <div className={classes.appTitle}>Enter Your Preferences</div>
             </div>
-            <div className={classes.tickIconContainer}>
+            <div onClick = {this.props.onSubmit} className={classes.tickIconContainer}>
 						<img src={TickIcon} className={classes.tickIcon} />
 						</div>
           </div>
