@@ -18,11 +18,12 @@ type Cab {
 }
 
 type Mutation {
-    createCab(
+    getGroup(
        size: Int!
        start: String!
        end: String!
        to: AllowedLocations
        from: AllowedLocations
+       phoneNo: String!
     ): Cab
 }

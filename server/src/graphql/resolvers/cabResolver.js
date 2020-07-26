@@ -1,11 +1,22 @@
 const Cab = require("../../models/cab");
 const mongoose = require("mongoose");
+const { AuthenticationError } = require('apollo-server');
 
 const resolver = {
     Mutation: {
-        async createCab(_, args, context) {
+        async getGroup(_, args, context) {
+            if (context.authenticated) {
+                const user = await context.user;
+                user.contact = args.phoneNo;
+
+                await user.save();
+            } else {
+                throw new AuthenticationError('must authenticate');
+            }
+
             const start = new Date(args.start);
             const end = new Date(args.end);
+            // query for getting feasible groups.
             const cabs = await Cab.find({
                     to: args.to,
                     from: args.from,
@@ -30,6 +41,7 @@ const resolver = {
             const current = new Date();
             let waitList = [];
 
+            // creating node for each feasible group and putting them in waiting list.
             cabs.forEach((item) => {
                 let node = item.assignPriority(args.size, start, end, current);
                 if (node != null) {
@@ -57,14 +69,14 @@ const resolver = {
                 return cab;
             }
 
+            // sorting waiting list according to priority in descending order.
             waitList = waitList.sort((a, b) => (a.priority < b.priority) ? 1 : (a.priority > b.priority) ? -1 : 0);
 
             const pair = await waitList[0];
             let cab = await Cab.findById(pair.id);
             const logged_user = await context.user;
             cab = await cab.merge(logged_user._id, args.size, start, end);
-
-            // const cab = waitList[0].merge(context.user._id, args.size, start, end);
+            
             waitList.forEach((item) => { delete item });
 
             logged_user.cabs.push(mongoose.Types.ObjectId(cab._id));
