@@ -1,6 +1,6 @@
 .nav {
   overflow: hidden;
-  width: 100vw;
+  width: 100%;
   background-color: #310887;
   height: 8vh;
   display: flex;
