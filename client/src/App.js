@@ -20,7 +20,7 @@ const App = (props) => {
 
   return (
     <div>
-      <Route path="/oauth-callback" exact component={LoginCallback} />
+      <Route path="/oauth-callback/" exact component={LoginCallback} />
       <IsLoggedIn />
     </div>
   );

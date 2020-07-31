@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-mongoose.connect(process.env.MONGODB_URI || "mongodb://127.0.0.1:27017/cab-sharing-portal", {
+mongoose.connect(process.env.MONGODB_URI || "mongodb://db:27017/cab-sharing-portal", {
     useNewUrlParser: true,
     useCreateIndex: true,
     useFindAndModify: false,

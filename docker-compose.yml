@@ -1,0 +1,57 @@
+version: "3.7"
+
+services:
+  server:
+    container_name: "cab_sharing_server"
+    restart: unless-stopped
+    build: ./server
+    ports:
+      - "3000:3000"
+    env_file: ./server/src/.env
+    environment:
+      - NODE_ENV=production
+    depends_on: 
+      - db
+
+  client:
+    container_name: "cab_sharing_client"
+    build: ./client
+    environment:
+      - NODE_PATH=/app/src 
+    ports:
+      - "3006:3006" 
+    depends_on:
+      - server
+    volumes:
+      - react_build:/app/build
+
+  db:
+    container_name: "mongodb"
+    image: mongo
+    restart: unless-stopped
+    environment:
+      MONGO_INITDB_DATABASE: node-app
+    ports:
+      - "27017:27017"
+    volumes: 
+      - mongo_data:/data/db
+      - mongo_config:/data/configdb
+
+  nginx:
+    container_name: "nginx"
+    image: nginx:mainline-alpine
+    restart: unless-stopped
+    ports:
+      - "1337:80"
+    volumes:
+      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
+      - react_build:/usr/share/nginx/html
+    depends_on:
+      - server
+      - client
+
+
+volumes:
+  mongo_data: 
+  mongo_config:
+  react_build:
