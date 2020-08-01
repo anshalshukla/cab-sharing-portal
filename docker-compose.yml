@@ -7,7 +7,7 @@ services:
     build: ./server
     ports:
       - "3000:3000"
-    env_file: ./server/src/.env
+    env_file: ./server/config.env
     environment:
       - NODE_ENV=production
     depends_on: 
@@ -16,6 +16,7 @@ services:
   client:
     container_name: "cab_sharing_client"
     build: ./client
+    env_file: ./client/config.env
     environment:
       - NODE_PATH=/app/src 
     ports:

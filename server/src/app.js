@@ -1,8 +1,5 @@
 const {ApolloServer} = require("apollo-server");
-const dotEnv = require("dotenv");
 const jwt = require("jsonwebtoken");
-
-dotEnv.config();
 
 // Initialize Database connection
 require("./db/mongoose");
