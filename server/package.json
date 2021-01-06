@@ -15,7 +15,7 @@
     "admin-bro-expressjs": "^2.1.0",
     "admin-bro-mongoose": "^0.5.2",
     "apollo-server": "^2.14.4",
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "bcryptjs": "^2.4.3",
     "dataloader": "^2.0.0",
     "dotenv": "^8.2.0",
