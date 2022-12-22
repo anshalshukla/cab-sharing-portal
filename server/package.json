@@ -23,7 +23,7 @@
     "graphql": "^15.1.0",
     "graphql-iso-date": "^3.6.1",
     "graphql-tools": "^6.0.10",
-    "jsonwebtoken": "^8.5.1",
+    "jsonwebtoken": "^9.0.0",
     "mongoose": "^5.9.18",
     "query-string": "^6.13.1",
     "validator": "^13.1.1",
